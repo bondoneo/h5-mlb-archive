@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MLB 资料整理与信息索引 | h5-mlb.com</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, 'Segoe UI', 'PingFang SC', Roboto, 'Helvetica Neue', sans-serif;
+      background: #faf7f2;
+      color: #2e2b27;
+      line-height: 1.7;
+      padding: 0 1.2rem;
+    }
+
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 2.4rem 0;
+    }
+
+    /* hero */
+    .hero {
+      padding: 3.2rem 0 1.8rem 0;
+      border-bottom: 2px solid #e3dcd2;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #302b25;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #6f6760;
+      max-width: 600px;
+      margin-top: 0.4rem;
+    }
+
+    .hero .meta {
+      margin-top: 1.6rem;
+      font-size: 0.95rem;
+      color: #7d746c;
+      background: #f1ebe3;
+      padding: 0.6rem 1.2rem;
+      border-radius: 0 20px 20px 0;
+      border-left: 5px solid #a8957a;
+      display: inline-block;
+    }
+
+    /* 引用块 / 信息提示 */
+    .insight {
+      background: #efe9df;
+      border-left: 6px solid #b7a58a;
+      padding: 1.2rem 1.6rem;
+      margin: 2.2rem 0;
+      border-radius: 0 14px 14px 0;
+      font-size: 0.98rem;
+      color: #3a342e;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .insight strong {
+      color: #4f3e2c;
+    }
+
+    /* 通用段标题 */
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin: 2.4rem 0 0.8rem 0;
+      color: #2b2621;
+      letter-spacing: -0.01em;
+      border-bottom: 1px dashed #ddd3c5;
+      padding-bottom: 0.3rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin: 1.6rem 0 0.4rem;
+      color: #3c342d;
+    }
+
+    p {
+      margin: 0.8rem 0 1.2rem;
+    }
+
+    ul, ol {
+      padding-left: 1.4rem;
+      margin: 0.6rem 0 1.4rem;
+    }
+
+    li {
+      margin: 0.4rem 0;
+    }
+
+    a {
+      color: #735e44;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+    }
+
+    a:hover {
+      color: #4c3b28;
+      background: #e7dbcd;
+      transition: 0.15s;
+    }
+
+    /* 信息卡片式优势 */
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+      margin: 1.8rem 0;
+    }
+
+    .feature-card {
+      flex: 1 1 200px;
+      background: #f6f1ea;
+      border-radius: 20px;
+      padding: 1.4rem 1.2rem 1.2rem;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.02);
+      border: 1px solid #e5dcd1;
+    }
+
+    .feature-card h4 {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      color: #3f352c;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #4f4640;
+      margin: 0;
+    }
+
+    /* FAQ 摘要 */
+    .faq-entry {
+      margin: 1rem 0;
+      background: #f5efe7;
+      padding: 1rem 1.4rem;
+      border-radius: 18px;
+      border: 1px solid #e0d5c7;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #3a2f26;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-a {
+      font-size: 0.96rem;
+      color: #4f453d;
+    }
+
+    .faq-a a {
+      word-break: break-all;
+    }
+
+    /* 底部 */
+    .footer-links {
+      margin-top: 3.4rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #ddd2c4;
+      font-size: 0.95rem;
+      color: #6a6058;
+    }
+
+    .footer-links p {
+      margin: 0.4rem 0;
+    }
+
+    .footer-links a {
+      color: #5f4b36;
+    }
+
+    .footer-links a:hover {
+      background: transparent;
+      color: #1f1b18;
+    }
+
+    .signature {
+      margin-top: 2rem;
+      text-align: right;
+      font-size: 0.9rem;
+      color: #9c8f81;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.9rem; }
+      body { padding: 0 0.8rem; }
+      .feature-grid { flex-direction: column; }
+      .insight { margin: 1.6rem 0; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>MLB · 资料整理与信息索引</h1>
+    <div class="sub">从赛事记录、数据归档到阅读笔记，一份轻量的内容导航</div>
+    <div class="meta">更新于 2025 · 基于公开资料与社区整理</div>
+  </div>
+
+  <!-- 说明区 -->
+  <h2>这一页的来由</h2>
+  <p>做信息索引这件事，往往是从一个很小的点开始的。某天想查某个赛季的投手数据，发现散落在各处：官方统计、论坛复盘、杂志专题……于是顺手把零散链接和摘要收拢起来，慢慢就变成了一个以 <a href="https://h5-mlb.com">mlb</a> 为中心的笔记本。谈不上多全面，但至少每次打开少翻几层菜单。</p>
+
+  <div class="insight">
+    <strong>一点提醒</strong> —— 这个页面不是官方站点，也不是新闻速递。它更像是一个帮你节省时间的资料架：比赛回顾、规则变化、球队沿革、选秀档案……挑着看，按需取用。
+  </div>
+
+  <!-- 优势区：卡片 -->
+  <h2>用起来比较顺手的几个方向</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h4>📋 赛季索引</h4>
+      <p>从2010到最近一个完整赛季，每一年都有单独页面，汇总战绩、季后赛对阵、全明星名单、奖项得主。</p>
+    </div>
+    <div class="feature-card">
+      <h4>📎 规则与术语</h4>
+      <p>把官方规则手册拆成了更易读的短条目，配合实例解释。适合新老球迷偶尔翻翻，查缺补漏。</p>
+    </div>
+    <div class="feature-card">
+      <h4>📚 阅读笔记</h4>
+      <p>记录了几本棒球相关书籍的章节摘要、数据图表解读，以及一些采访的翻译片段，方便快速回顾。</p>
+    </div>
+  </div>
+
+  <!-- 说明区 / 场景 -->
+  <h2>什么情况下会用到这份索引</h2>
+  <p>比如想翻一下某年的外卡赛结果，或者想确认某条规则是哪一年改的——直接在索引里找到对应卡片，两三步就跳转到更详细的来源。也可以反过来，先读一段笔记，再决定要不要去看完整的原文。</p>
+  <p>另外也收录了一些球队的非官方历史时间线，像是搬迁、改名、换主场之类的大事记，比维基百科稍微更偏比赛视角一些。如果你恰好也在整理类似的东西，这里可能提供一些参考。</p>
+
+  <!-- 提示框/引用样式的提示 -->
+  <div class="insight">
+    <strong>一个小建议</strong> —— 不用一次性读完整页。把感兴趣的标签记下来，下次想看某个话题时直接搜索关键词，配合索引定位会快很多。很多内容我也在陆续更新，遇到失效的链接欢迎提醒。
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <h2>常见疑问简述 (FAQ)</h2>
+  <div class="faq-entry">
+    <span class="faq-q">❓ 这个索引多久更新一次？</span>
+    <div class="faq-a">没有固定周期，通常赛季结束后或规则有变动时会集中补充。最近一次更新在本月。</div>
+  </div>
+  <div class="faq-entry">
+    <span class="faq-q">❓ 所有链接都能直接访问吗？</span>
+    <div class="faq-a">大部分指向公开资料、官方统计或存档页面，偶尔有外链失效，我会标记出来。你也可以直接在 <a href="https://h5-mlb.com">mlb</a> 首页搜索框里试其他关键词。</div>
+  </div>
+  <div class="faq-entry">
+    <span class="faq-q">❓ 能否转载或分享这里的整理内容？</span>
+    <div class="faq-a">基本以事实性数据和总结为主，转载时注明出处即可。如果是大段摘录，希望提前说一声。</div>
+  </div>
+
+  <!-- 底部链接 -->
+  <div class="footer-links">
+    <p>📎 资料主页：<a href="https://h5-mlb.com">mlb</a> · 持续归档中</p>
+    <p>📬 反馈与建议：页面底部有留言入口（目前仅文字）</p>
+    <p>📌 其他参考：规则手册 · 球队变迁 · 赛季总结</p>
+    <div class="signature">—— 由日常整理驱动 · 2025</div>
+  </div>
+
+</div>
+</body>
+</html>
